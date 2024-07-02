@@ -1,5 +1,7 @@
 # inventory-rest-api
 
+
+
 #CREATE TABLE COMMAND
 CREATE TABLE inventory (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
