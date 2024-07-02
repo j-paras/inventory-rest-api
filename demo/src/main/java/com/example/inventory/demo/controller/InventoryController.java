@@ -21,7 +21,7 @@ public class InventoryController {
         return ResponseEntity.ok(savedInventory);
     }
 
-    @GetMapping("/inventories")
+    @GetMapping("/")
     public ResponseEntity<List<Inventory>> getAllInventory(){
         List<Inventory> inventories=inventoryService.getAllInventory();
         return ResponseEntity.ok(inventories);
