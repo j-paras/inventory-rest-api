@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/inventory")
 public class InventoryController {
 
     @Autowired
     private InventoryService inventoryService;
 
-    @PostMapping("/inventory/create")
+    @PostMapping("/create")
     public ResponseEntity<Inventory> saveInventory(@RequestBody Inventory inventory){
         Inventory savedInventory=inventoryService.saveInventory(inventory);
         return ResponseEntity.ok(savedInventory);
     }
 
-    @GetMapping("/inventories")
+    @GetMapping("/")
     public ResponseEntity<List<Inventory>> getAllInventory(){
         List<Inventory> inventories=inventoryService.getAllInventory();
         return ResponseEntity.ok(inventories);
