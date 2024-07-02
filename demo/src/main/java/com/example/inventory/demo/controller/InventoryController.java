@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/inventory")
@@ -27,6 +28,10 @@ public class InventoryController {
         return ResponseEntity.ok(inventories);
     }
 
-//    @PutMapping(path = "/{id}")
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<Inventory> updateInventory(@PathVariable("id") Long id, @RequestBody Inventory inventory){
+        Optional<Inventory> inventoryOptional=inventoryService.updateInventory(id, inventory);
+        return inventoryOptional.isPresent()?ResponseEntity.ok(inventoryOptional.get()):ResponseEntity.notFound().build();
+    }
 
 }
