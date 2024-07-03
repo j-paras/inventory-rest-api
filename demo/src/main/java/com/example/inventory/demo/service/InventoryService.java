@@ -62,6 +62,8 @@ public class InventoryService {
             if(existingInventoryOptional.isPresent()){
                 Inventory existingInventory = existingInventoryOptional.get();
                 existingInventory.setSellingPrice(updateInventory.getSellingPrice());
+                existingInventory.setLocation(updateInventory.getLocation());
+                existingInventory.setAttributes(updateInventory.getAttributes());
                 existingInventory.setStatus("MODIFIED");
                 existingInventory.setUpdatedAt(LocalDateTime.now());
                 Inventory saveInventory=inventoryRepository.save(existingInventory);
